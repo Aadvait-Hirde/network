@@ -84,10 +84,10 @@ export function HeroSection() {
             <Button
               variant="outline"
               size="sm"
-              onClick={() => handleButtonClick("elevenlabs.io")}
+              onClick={() => handleButtonClick("elevenlabs")}
               className="text-sm"
             >
-              elevenlabs.io
+              ElevenLabs
             </Button>
             <Button
               variant="outline"
@@ -95,7 +95,7 @@ export function HeroSection() {
               onClick={() => handleButtonClick("fireworks.ai")}
               className="text-sm"
             >
-              fireworks.ai
+              Fireworks
             </Button>
             <Button
               variant="outline"
@@ -103,7 +103,7 @@ export function HeroSection() {
               onClick={() => handleButtonClick("arize.com")}
               className="text-sm"
             >
-              arize.com
+              Arize
             </Button>
             <Button
               variant="outline"
@@ -111,7 +111,7 @@ export function HeroSection() {
               onClick={() => handleButtonClick("decagon.ai")}
               className="text-sm"
             >
-              decagon.ai
+              Decagon
             </Button>
           </div>
         </div>
@@ -152,7 +152,7 @@ export function HeroSection() {
               alt="Fireworks"
               width={120}
               height={40}
-              className="object-contain saturate-0 hover:scale-125 transition-all duration-300"
+              className="object-contain saturate-0 scale-150 hover:scale-175 transition-all duration-300"
             />
           </div>
         </div>
