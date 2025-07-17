@@ -16,7 +16,7 @@ export function HeroSection() {
     setTextareaValue(text);
   };
   return (
-    <section className="relative flex flex-col items-center justify-start pt-64 pb-16 px-4 text-center min-h-screen overflow-hidden -mt-16">
+    <section className="relative flex flex-col items-center justify-start pt-64 md:pt-48 pb-16 px-4 text-center min-h-screen overflow-hidden -mt-16">
       {/* Background Orb */}
       <div className="absolute inset-0 w-full h-full opacity-30">
         <Orb hue={270} hoverIntensity={0.3} scale={2.5} quality="low"/>
@@ -60,14 +60,14 @@ export function HeroSection() {
 
         {/* Try it Now textarea */}
         <div className="mb-16 w-full max-w-2xl px-4">
-          <label htmlFor="company-input" className="block text-sm font-medium text-foreground mb-3 text-left">
+          <label htmlFor="company-input" className="block text-md font-medium text-foreground mb-3 text-left">
             Try it Now!
           </label>
           <div className="relative w-full">
             <Textarea
               id="company-input"
               placeholder="Enter your company link or describe what it does"
-              className="h-32 resize-none w-full pr-14 focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:border-input"
+              className="h-32 resize-none w-full pr-14 focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:border-input focus:shadow-lg transition-shadow duration-200"
               value={textareaValue}
               onChange={(e) => setTextareaValue(e.target.value)}
             />
@@ -118,7 +118,7 @@ export function HeroSection() {
 
         <div className="flex flex-col items-center space-y-6">
           <ShinyText text="TRUSTED BY TOP COMPANIES" className="text-sm tracking-normal font-medium" speed={5} />
-          <div className="flex items-center justify-center gap-10 opacity-60">
+          <div className="flex items-center justify-center flex-wrap gap-4 md:gap-10 opacity-60">
             <Image
               src="/hubspot-logo.png"
               alt="HubSpot"
