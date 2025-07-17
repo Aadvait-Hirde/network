@@ -47,8 +47,8 @@ export function Navbar() {
           {/* Sign In Button */}
           <div className="flex items-center">
             <SignInButton>
-              <Button size="sm" className="rounded-sm px-6">
-                Sign In
+              <Button size="default" className="rounded-sm px-4" variant="outline">
+                <span className="pb-0.5 px-1">Sign In</span>
               </Button>
             </SignInButton>
           </div>
