@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import ShinyText from "@/reactbits/TextAnimations/ShinyText/ShinyText";
 import Orb from "@/reactbits/Backgrounds/Orb/Orb";
+import Image from "next/image";
 
 export function HeroSection() {
   return (
@@ -41,6 +42,40 @@ export function HeroSection() {
         
         <div className="mb-8 max-w-2xl">
           <ShinyText text="Unlock partnerships, customers, revenue at scale with Network AI." className="text-md md:text-lg tracking-normal font-[400]" speed={5} />
+        </div>
+
+        <div className="flex flex-col items-center space-y-6">
+          <ShinyText text="TRUSTED BY TOP COMPANIES" className="text-sm tracking-wider font-medium" speed={5} />
+          <div className="flex items-center justify-center space-x-8 opacity-60">
+            <Image
+              src="/hubspot-logo.png"
+              alt="HubSpot"
+              width={120}
+              height={40}
+              className="object-contain saturate-0 hover:scale-125 transition-all duration-300"
+            />
+            <Image
+              src="/google-logo.png"
+              alt="Google"
+              width={120}
+              height={40}
+              className="object-contain saturate-0 hover:scale-125 transition-all duration-300"
+            />
+            <Image
+              src="/vapi-logo.png"
+              alt="Vapi"
+              width={120}
+              height={40}
+              className="object-contain saturate-0 hover:scale-125 transition-all duration-300"
+            />
+            <Image
+              src="/parallel-logo.png"
+              alt="Parallel"
+              width={120}
+              height={40}
+              className="object-contain saturate-0 hover:scale-125 transition-all duration-300"
+            />
+          </div>
         </div>
       </div>
     </section>
