@@ -10,6 +10,7 @@ interface OrbProps {
   hoverIntensity?: number;
   rotateOnHover?: boolean;
   forceHoverState?: boolean;
+  scale?: number;
 }
 
 export default function Orb({
@@ -17,6 +18,7 @@ export default function Orb({
   hoverIntensity = 0.2,
   rotateOnHover = true,
   forceHoverState = false,
+  scale = 1.0,
 }: OrbProps) {
   const ctnDom = useRef<HTMLDivElement>(null);
 
@@ -40,6 +42,7 @@ export default function Orb({
     uniform float hover;
     uniform float rot;
     uniform float hoverIntensity;
+    uniform float scale;
     varying vec2 vUv;
 
     vec3 rgb2yiq(vec3 c) {
@@ -159,7 +162,7 @@ export default function Orb({
     vec4 mainImage(vec2 fragCoord) {
       vec2 center = iResolution.xy * 0.5;
       float size = min(iResolution.x, iResolution.y);
-      vec2 uv = (fragCoord - center) / size * 2.0;
+      vec2 uv = (fragCoord - center) / size * (2.0 / scale);
       
       float angle = rot;
       float s = sin(angle);
@@ -205,6 +208,7 @@ export default function Orb({
         hover: { value: 0 },
         rot: { value: 0 },
         hoverIntensity: { value: hoverIntensity },
+        scale: { value: scale },
       },
     });
 
@@ -266,6 +270,7 @@ export default function Orb({
       program.uniforms.iTime.value = t * 0.001;
       program.uniforms.hue.value = hue;
       program.uniforms.hoverIntensity.value = hoverIntensity;
+      program.uniforms.scale.value = scale;
 
       const effectiveHover = forceHoverState ? 1 : targetHover;
       program.uniforms.hover.value +=
@@ -288,7 +293,7 @@ export default function Orb({
       container.removeChild(gl.canvas);
       gl.getExtension("WEBGL_lose_context")?.loseContext();
     };
-  }, [hue, hoverIntensity, rotateOnHover, forceHoverState]);
+  }, [hue, hoverIntensity, rotateOnHover, forceHoverState, scale]);
 
   return <div ref={ctnDom} className="w-full h-full" />;
 }

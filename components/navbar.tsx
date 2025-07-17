@@ -7,14 +7,14 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/20 backdrop-blur-md supports-[backdrop-filter]:bg-background/20">
       <div className="container mx-auto px-4">
-        <div className="flex h-16 items-center justify-between">
+        <div className="relative flex h-16 items-center justify-between">
           {/* Logo */}
           <div className="flex items-center space-x-2">
             <div className="h-8 w-8 bg-primary rounded-md"></div>
           </div>
 
-          {/* Navigation - Desktop */}
-          <nav className="hidden md:block">
+          {/* Navigation - Desktop - Absolutely positioned for true centering */}
+          <nav className="absolute left-1/2 transform -translate-x-1/2 hidden md:block">
             <ul className="flex items-center space-x-8 text-sm font-medium">
               <li>
                 <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
