@@ -1,9 +1,11 @@
-import { SignIn } from "@clerk/nextjs";
+import { Navbar } from "@/components/navbar";
+import { HeroSection } from "@/components/hero-section";
 
 export default function Home() {
   return (
-    <div>
-      <SignIn />
+    <div className="min-h-screen">
+      <Navbar />
+      <HeroSection />
     </div>
   );
 }

@@ -43,6 +43,16 @@
   --radius-xl: calc(var(--radius) + 4px);
 }
 
+/* Shine animation for ShinyText component */
+@keyframes shine {
+  0% {
+    background-position: 100%;
+  }
+  100% {
+    background-position: -100%;
+  }
+}
+
 :root {
   --radius: 0.625rem;
   --background: oklch(1 0 0);
@@ -118,5 +128,12 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+/* Shine animation utility */
+@layer utilities {
+  .animate-shine {
+    animation: shine 5s linear infinite;
   }
 }
