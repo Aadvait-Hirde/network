@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { SignInButton } from "@clerk/nextjs";
+import Image from "next/image";
 
 export function Navbar() {
   return (
@@ -10,7 +11,12 @@ export function Navbar() {
         <div className="relative flex h-16 items-center justify-between">
           {/* Logo */}
           <div className="flex items-center space-x-2">
-            <div className="h-8 w-8 bg-primary rounded-md"></div>
+            <Image
+              src="/network-logo.png"
+              alt="Network AI"
+              width={48}
+              height={48}
+            />
           </div>
 
           {/* Navigation - Desktop - Absolutely positioned for true centering */}
