@@ -1,17 +1,31 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { Textarea } from "@/components/ui/textarea";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import ShinyText from "@/reactbits/TextAnimations/ShinyText/ShinyText";
 import Orb from "@/reactbits/Backgrounds/Orb/Orb";
 import Image from "next/image";
+import { Send } from "lucide-react";
+import { useState } from "react";
 
 export function HeroSection() {
+  const [textareaValue, setTextareaValue] = useState("");
+
+  const handleButtonClick = (text: string) => {
+    setTextareaValue(text);
+  };
   return (
-    <section className="relative flex flex-col items-center justify-start pt-20 pb-16 px-4 text-center min-h-screen overflow-hidden">
+    <section className="relative flex flex-col items-center justify-start pt-64 pb-16 px-4 text-center min-h-screen overflow-hidden -mt-16">
       {/* Background Orb */}
       <div className="absolute inset-0 w-full h-full opacity-30">
-        <Orb hue={270} hoverIntensity={0.3} scale={1.15}/>
+        <Orb hue={270} hoverIntensity={0.3} scale={2.5} quality="low"/>
+      </div>
+      <div className="absolute inset-0 w-full h-full opacity-30">
+        <Orb hue={270} hoverIntensity={0.3} scale={2} quality="low"/>
+      </div>
+      <div className="absolute inset-0 w-full h-full opacity-30">
+        <Orb hue={270} hoverIntensity={0.3} scale={0.75} quality="low"/>
       </div>
       
       {/* Content */}
@@ -40,12 +54,70 @@ export function HeroSection() {
           </div>
         </div>
         
-        <div className="mb-8 max-w-2xl">
+        <div className="mb-16 max-w-2xl">
           <ShinyText text="Unlock partnerships, customers, revenue at scale with Network AI." className="text-md md:text-lg tracking-normal font-[400]" speed={5} />
         </div>
 
+        {/* Try it Now textarea */}
+        <div className="mb-16 w-full max-w-2xl px-4">
+          <label htmlFor="company-input" className="block text-sm font-medium text-foreground mb-3 text-left">
+            Try it Now!
+          </label>
+          <div className="relative w-full">
+            <Textarea
+              id="company-input"
+              placeholder="Enter your company link or describe what it does"
+              className="h-32 resize-none w-full pr-14 focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:border-input"
+              value={textareaValue}
+              onChange={(e) => setTextareaValue(e.target.value)}
+            />
+                          <button
+                type="submit"
+                className="absolute right-2 top-2 p-2 text-muted-foreground hover:text-foreground transition-colors border rounded-[5px] flex items-center justify-center bg-transparent hover:bg-transparent"
+              >
+             <Send className="w-5 h-5" />
+            </button>
+          </div>
+          
+          {/* Company buttons */}
+          <div className="flex flex-wrap gap-2 mt-4 justify-center">
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => handleButtonClick("elevenlabs.io")}
+              className="text-sm"
+            >
+              elevenlabs.io
+            </Button>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => handleButtonClick("fireworks.ai")}
+              className="text-sm"
+            >
+              fireworks.ai
+            </Button>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => handleButtonClick("arize.com")}
+              className="text-sm"
+            >
+              arize.com
+            </Button>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => handleButtonClick("decagon.ai")}
+              className="text-sm"
+            >
+              decagon.ai
+            </Button>
+          </div>
+        </div>
+
         <div className="flex flex-col items-center space-y-6">
-          <ShinyText text="TRUSTED BY TOP COMPANIES" className="text-sm tracking-wider font-medium" speed={5} />
+          <ShinyText text="TRUSTED BY TOP COMPANIES" className="text-sm tracking-normal font-medium" speed={5} />
           <div className="flex items-center justify-center space-x-8 opacity-60">
             <Image
               src="/hubspot-logo.png"
@@ -71,6 +143,13 @@ export function HeroSection() {
             <Image
               src="/parallel-logo.png"
               alt="Parallel"
+              width={120}
+              height={40}
+              className="object-contain saturate-0 hover:scale-125 transition-all duration-300"
+            />
+            <Image
+              src="/fireworks-logo.png"
+              alt="Fireworks"
               width={120}
               height={40}
               className="object-contain saturate-0 hover:scale-125 transition-all duration-300"
